@@ -6,3 +6,5 @@ done
 unset file
 
 PATH=$HOME/bin:/opt/local/bin:/usr/local/bin:$PATH
+
+source ~/.rvm/scripts/rvm
