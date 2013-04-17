@@ -22,7 +22,7 @@ alias cp="cp -i"
 alias rm="rm -i"
 alias grep="grep --color=auto"
 alias cd..="cd .."
-alias cat='pygmentize -O style=monokai -f console256 -g'
+alias cat='pygmentize -O -dark -f console256 -g'
 
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
