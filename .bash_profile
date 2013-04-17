@@ -1,10 +1,5 @@
 # .bash_profile
 
-# Load additional files
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-fi
-
 for file in ~/.{git-completion.bash,bash_prompt,exports,aliases,functions}; do
 	[ -r "$file" ] && source "$file"
 done
