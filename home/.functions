@@ -1,5 +1,9 @@
-# Create a new directory and enter it
+# Create a new directory and all child directories
 function md() {
+	mkdir -p "$@"
+}
+# Create a new directory and enter it
+function mdo() {
 	mkdir -p "$@" && cd "$@"
 }
 
@@ -13,6 +17,7 @@ cdf() {  # short for cdfinder
   cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 }
 
+# Show the current directory in the forefront Finder window.
 cds() {
     osascript -e 'on run pwd
     set f to posix file pwd
@@ -26,19 +31,6 @@ cds() {
     end' "$PWD" > /dev/null
 }
 
-# git log with per-commit cmd-clickable GitHub URLs (iTerm)
-function gf() {
-  local remote="$(git remote -v | awk '/^origin.*\(push\)$/ {print $2}')"
-  [[ "$remote" ]] || return
-  local user_repo="$(echo "$remote" | perl -pe 's/.*://;s/\.git$//')"
-  git log $* --name-status --color | awk "$(cat <<AWK
-    /^.*commit [0-9a-f]{40}/ {sha=substr(\$2,1,7)}
-    /^[MA]\t/ {printf "%s\thttps://github.com/$user_repo/blob/%s/%s\n", \$1, sha, \$2; next}
-    /.*/ {print \$0}
-AWK
-  )" | less -F
-}
-
 # Syntax-highlight JSON strings or files
 function json() {
 	if [ -p /dev/stdin ]; then
@@ -49,7 +41,6 @@ function json() {
 		python -mjson.tool <<< "$*" | pygmentize -l javascript
 	fi
 }
-
 
 # take this repo and copy it to somewhere else minus the .git stuff.
 function gitexport(){

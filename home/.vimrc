@@ -81,6 +81,9 @@ set guifont=Inconsolata-dz\ for\ Powerline:h16
 " Reload Vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" Expand current directory when opening a file
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 " ---------------
 " Folding
 " ---------------
