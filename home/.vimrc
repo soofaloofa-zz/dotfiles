@@ -38,37 +38,7 @@ Bundle 'tpope/vim-unimpaired'
 filetype on
 filetype plugin on
 filetype plugin indent on
-let mapleader = ","
-let maplocalleader = "\\"
-
-" ----------------------------------------
-" Platform Specific Configuration
-" ----------------------------------------
-
-if has('win32') || has('win64')
-  " Windows
-  source $VIMRUNTIME/mswin.vim
-  set guifont=Consolas:h10
-  set guioptions-=T " Toolbar
-  set guioptions-=m " Menubar
-
-  " Set height and width on Windows
-  set lines=60
-  set columns=120
-
-  " Windows has a nasty habit of launching gVim in the wrong working directory
-  cd ~
-elseif has('gui_macvim')
-  " MacVim
-
-  " Hide Toolbar in MacVim
-  if has("gui_running")
-    set guioptions=egmrt
-  endif
-
-  " Use option (alt) as meta key.
-  set macmeta
-endif
+runtime macros/matchit.vim
 
 " Custom font for Powerline
 " From: https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
@@ -84,12 +54,15 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 " Expand current directory when opening a file
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+set visualbell
+
 " ---------------
 " Folding
 " ---------------
 " Python folding
 set foldmethod=indent foldlevel=99 
-nnoremap <Space> za
+nnoremap <silent> <Space> za
+vnoremap <Space> zf
 
 " ---------------
 " Whitespace
@@ -101,6 +74,8 @@ if has("autocmd")
   " Customisations based on house-style (arbitrary)
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType python setlocal ts=2 sts=2 sw=2 tw=120 expandtab
 endif
 
 " ---------------
