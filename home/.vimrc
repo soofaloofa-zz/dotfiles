@@ -75,7 +75,7 @@ if has("autocmd")
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType python setlocal ts=2 sts=2 sw=2 tw=120 expandtab
+  autocmd FileType python setlocal tw=120 expandtab
 endif
 
 " ---------------
