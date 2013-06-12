@@ -57,25 +57,15 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 set visualbell
 
 " ---------------
-" Folding
-" ---------------
-" Python folding
-set foldmethod=indent foldlevel=99 
-nnoremap <silent> <Space> za
-vnoremap <Space> zf
-
-" ---------------
 " Whitespace
 " ---------------
 if has("autocmd")
-  " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-   
-  " Customisations based on house-style (arbitrary)
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType python setlocal tw=120 expandtab
+  autocmd FileType jade setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType python setlocal tw=120 expandtab foldmethod=indent foldlevel=99 
 endif
 
 " ---------------
@@ -85,6 +75,7 @@ set t_Co=256
 syntax enable
 set background=light
 colorscheme solarized
+nnoremap <CR> :noh<CR><CR> # Hit return to the search highlighting
 
 " ---------------
 " Backups
