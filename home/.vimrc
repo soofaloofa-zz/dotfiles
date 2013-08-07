@@ -22,11 +22,11 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'matthias-guenther/hammer.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'nelstrom/vim-qargs'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
+Bundle 'SirVer/ultisnips'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-fugitive'
@@ -34,6 +34,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'Valloric/YouCompleteMe'
 
 filetype on
 filetype plugin on
@@ -75,7 +76,7 @@ set t_Co=256
 syntax enable
 set background=light
 colorscheme solarized
-nnoremap <CR> :noh<CR><CR> # Hit return to the search highlighting
+nnoremap <CR> :noh<CR><CR> 
 
 " ---------------
 " Backups
@@ -124,6 +125,12 @@ set cindent
 set autoindent
 set smarttab
 set expandtab
+
+" ---------------
+" Folding
+" ---------------
+nnoremap <silent> <Space> za
+vnoremap <Space> zf
 
 " ---------------
 " Searching
@@ -222,6 +229,13 @@ map! <D-7> <C-O>:tabn 7<CR>
 map! <D-8> <C-O>:tabn 8<CR>
 map! <D-9> <C-O>:tabn 9<CR>
 
+
+" ---------------
+" Preserve last substitution flags
+" ---------------
+nnoremap & :&& <CR>
+xnoremap & :&& <CR>
+
 " ----------------------------------------
 " Plugin Configuration
 " ----------------------------------------
@@ -248,60 +262,6 @@ let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_show_hidden = 1
 
 " ---------------
-" neocomplcache
-" ---------------
-let g:acp_enableAtStartup = 0 
-let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_auto_select=0
-let g:neocomplcache_cursor_hold_i_time=300
-let g:neocomplcache_auto_completion_start_length=2
-let g:neocomplcache_min_syntax_length=3
-" Use smartcase. 
-let g:neocomplcache_enable_smart_case = 1 
-" Use camel case completion. 
-let g:neocomplcache_enable_camel_case_completion = 1 
-" Use underbar completion. 
-let g:neocomplcache_enable_underbar_completion = 1 
-
-" Tab / Shift-Tab to cycle completions
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-" <CR>: close popup and save indent. 
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>" 
-" <C-h>, <BS>: close popup and delete backword char. 
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>" 
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>" 
-inoremap <expr><C-y>  neocomplcache#close_popup() 
-inoremap <expr><C-e>  neocomplcache#cancel_popup() 
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in escape mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" ---------------
-" neosnippet
-" ---------------
-"imap <C-k> <Plug>(neosnippet_expand_or_jump)
-"smap <C-k> <Plug>(neosnippet_expand_or_jump)
-
-" SuperTab like snippets behavior. 
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>" 
-
-" For snippet_complete marker.
-if has('conceal')
-    set conceallevel=2 concealcursor=i
-endif
-
-" ---------------
 " NERDTree
 " ---------------
 nnoremap <leader>nn :NERDTreeToggle<CR>
@@ -311,6 +271,18 @@ let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2 " Change the NERDTree directory to the root node of bookmarks
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeQuitOnOpen=1
+
+" ---------------
+" UltiSnips
+" ---------------
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" ---------------
+" YouCompleteMe
+" ---------------
+let g:ycm_autoclose_preview_window_after_completion=1
 
 " ---------------
 " Powerline
