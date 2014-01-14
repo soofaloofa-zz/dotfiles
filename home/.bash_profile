@@ -12,5 +12,6 @@ unset file
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
+source "/usr/local/bin/virtualenvwrapper.sh"
 
 PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH

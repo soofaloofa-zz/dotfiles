@@ -15,10 +15,10 @@ Bundle 'gmarik/vundle'
 
 " GitHub repos
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
 Bundle 'c9s/bufexplorer'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'matthias-guenther/hammer.vim'
 Bundle 'mileszs/ack.vim'
@@ -41,10 +41,7 @@ filetype plugin on
 filetype plugin indent on
 runtime macros/matchit.vim
 
-" Custom font for Powerline
-" From: https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
-set guifont=Inconsolata-dz\ for\ Powerline:h16
-
+let g:airline_powerline_fonts=1
 " ----------------------------------------
 " Regular Vim Configuration (No Plugins Needed)
 " ----------------------------------------
@@ -283,17 +280,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " YouCompleteMe
 " ---------------
 let g:ycm_autoclose_preview_window_after_completion=1
-
-" ---------------
-" Powerline
-" ---------------
-" Keep ^B from showing on Windows in Powerline
-if has('win32') || has('win64')
-  let g:Powerline_symbols = 'compatible'
-elseif has('gui_macvim')
-  let g:Powerline_symbols = 'fancy'
-endif
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 
 " ---------------
 " Gundo
