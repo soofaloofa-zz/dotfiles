@@ -238,6 +238,11 @@ xnoremap & :&& <CR>
 " ----------------------------------------
 
 " ---------------
+" Airline
+" ---------------
+let g:airline_detect_whitespace=0
+
+" ---------------
 " TagBar
 " ---------------
 nmap <leader>t :TagbarToggle<CR>
