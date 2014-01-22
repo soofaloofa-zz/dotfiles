@@ -17,6 +17,7 @@ Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'c9s/bufexplorer'
+Bundle 'digitaltoad/vim-jade'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
@@ -58,6 +59,7 @@ set visualbell
 " Whitespace
 " ---------------
 if has("autocmd")
+  autocmd BufNewFile,BufRead *.jade set filetype=jade
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
