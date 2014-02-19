@@ -18,6 +18,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'c9s/bufexplorer'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'jnwhiteh/vim-golang'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
@@ -37,10 +38,10 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'Valloric/YouCompleteMe'
 
+syntax on
 filetype on
 filetype plugin on
 filetype plugin indent on
-runtime macros/matchit.vim
 
 let g:airline_powerline_fonts=1
 " ----------------------------------------
@@ -60,12 +61,15 @@ set visualbell
 " ---------------
 if has("autocmd")
   autocmd BufNewFile,BufRead *.jade set filetype=jade
+  autocmd BufNewFile,BufRead *.apib set filetype=markdown
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType jade setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal tw=120 expandtab foldmethod=indent foldlevel=99 
+  autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  autocmd FileType go compiler go
 endif
 
 " ---------------
