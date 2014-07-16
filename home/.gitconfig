@@ -58,3 +58,8 @@
     h = !git --no-pager log --graph -n 15
     a = !git --no-pager la -n 15
 
+[credential]
+	helper = osxkeychain
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
