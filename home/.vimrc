@@ -12,23 +12,15 @@ Bundle 'gmarik/vundle'
 " ----------------------------------------
 " Bundle List
 " ----------------------------------------
-
-" GitHub repos
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'AndrewRadev/vim-eco'
 Bundle 'bling/vim-airline'
-Bundle 'bkad/CamelCaseMotion'
 Bundle 'c9s/bufexplorer'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'groenewege/vim-less'
+Bundle 'godlygeek/tabular'
 Bundle 'honza/vim-snippets'
 Bundle 'jnwhiteh/vim-golang'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
+Bundle 'mitsuhiko/vim-jinja'
 Bundle 'majutsushi/tagbar'
-Bundle 'matthias-guenther/hammer.vim'
-Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'mileszs/ack.vim'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'nelstrom/vim-qargs'
@@ -36,10 +28,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'SirVer/ultisnips'
 Bundle 'sjl/gundo.vim'
-Bundle 'soofaloofa/argtextobj.vim'
-Bundle 'tell-k/vim-autopep8'
-Bundle 'tommcdo/vim-exchange'
-Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
@@ -69,9 +57,6 @@ set visualbell
 " Whitespace
 " ---------------
 if has("autocmd")
-  autocmd BufNewFile,BufRead *.jade set filetype=jade
-  autocmd BufNewFile,BufRead *.apib set filetype=markdown
-  autocmd BufNewFile,BufRead *.less set filetype=less
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
@@ -79,7 +64,10 @@ if has("autocmd")
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType jade setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType eco setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType python setlocal tw=120 expandtab foldmethod=indent foldlevel=99 
+  autocmd FileType r setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType python setlocal expandtab foldmethod=indent foldlevel=99 
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
   autocmd FileType go compiler go
 endif
@@ -113,7 +101,6 @@ set encoding=utf-8
 if exists('+colorcolumn')
   set colorcolumn=120 " Color the column differently
 endif
-
 
 " ---------------
 " Behaviors
@@ -259,11 +246,6 @@ xnoremap & :&& <CR>
 " Airline
 " ---------------
 let g:airline_detect_whitespace=0
-
-" ---------------
-" Autopep8
-" ---------------
-let g:autopep8_disable_show_diff=1
 
 " ---------------
 " TagBar

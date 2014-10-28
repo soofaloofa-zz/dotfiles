@@ -16,10 +16,10 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 source "/usr/local/bin/virtualenvwrapper.sh"
 
-# AppEngine
-export GAE_SDK_ROOT=/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
+# AppEngine Path
+export GAE_SDK_ROOT=$PROJECT_HOME/google-cloud-sdk/platform/google_appengine
 
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PROJECT_HOME/go_appengine:$GOROOT/bin:$GOPATH/bin:$PATH
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PROJECT_HOME/google-cloud-sdk/bin:$GOROOT/bin:$GOPATH/bin:$PATH
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
