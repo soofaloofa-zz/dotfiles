@@ -5,10 +5,6 @@ for file in ~/.{git-completion.bash,bash_prompt,exports,aliases,functions}; do
 done
 unset file
 
-# Go
-export GOPATH=$HOME/Projects/golang
-export GOROOT=/usr/local/go
-
 # VirtualEnvWrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
@@ -16,19 +12,13 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 source "/usr/local/bin/virtualenvwrapper.sh"
 
-# AppEngine Path
-export GAE_SDK_ROOT=$PROJECT_HOME/google-cloud-sdk/platform/google_appengine
+# Google Cloud Platform
+export GAE_SDK_ROOT=$HOME/google-cloud-sdk/platform/google_appengine
+source $HOME/google-cloud-sdk/path.bash.inc
+source $HOME/google-cloud-sdk/completion.bash.inc
 
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PROJECT_HOME/google-cloud-sdk/bin:$GOROOT/bin:$GOPATH/bin:$PATH
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
-
-# The next line updates PATH for the Google Cloud SDK.
-source /Users/ksookocheff/Projects/google-cloud-sdk/path.bash.inc
-
-# The next line enables bash completion for gcloud.
-source /Users/ksookocheff/Projects/google-cloud-sdk/completion.bash.inc
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$HOME/google-cloud-sdk/bin:$PATH

@@ -4,8 +4,8 @@
 set nocompatible
 :filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 
@@ -25,8 +25,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'nelstrom/vim-qargs'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'SirVer/ultisnips'
+Bundle 'scrooloose/syntastic' 
+Bundle 'SirVer/ultisnips' 
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
@@ -34,6 +34,8 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'Valloric/YouCompleteMe'
+
+call vundle#end()
 
 syntax on
 filetype on
@@ -251,7 +253,7 @@ let g:airline_detect_whitespace=0
 " TagBar
 " ---------------
 nmap <leader>t :TagbarToggle<CR>
-let g:tagbar_ctags_bin='/opt/local/bin/exctags'
+let g:tagbar_ctags_bin='/opt/local/bin/ctags'
 let g:tagbar_autoclose=1
 let g:tagbar_autofocus=1
 

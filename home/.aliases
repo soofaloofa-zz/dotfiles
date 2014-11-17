@@ -13,8 +13,8 @@ alias lS="ls -lS"
 alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -i"
+alias vi="vim"
 alias grep="grep --color=auto"
-alias ctags="exctags"
 
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
