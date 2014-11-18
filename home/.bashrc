@@ -27,4 +27,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 CDPATH=:$HOME/Projects
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$HOME/google-cloud-sdk/bin:$PATH
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/opt/local/lib/mariadb/bin:$HOME/bin$HOME/google-cloud-sdk/bin:$PATH
