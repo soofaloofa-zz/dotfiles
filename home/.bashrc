@@ -17,8 +17,12 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 source "/usr/local/bin/virtualenvwrapper.sh"
 
+# Go
+export GOPATH=$HOME/Projects/go
+
 # Google Cloud Platform
 export GAE_SDK_ROOT=$HOME/google-cloud-sdk/platform/google_appengine
+export APPENGINE_LIB=$GAE_SDK_ROOT
 source $HOME/google-cloud-sdk/path.bash.inc
 source $HOME/google-cloud-sdk/completion.bash.inc
 
@@ -27,4 +31,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 CDPATH=:$HOME/Projects
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/opt/local/lib/mariadb/bin:$HOME/bin$HOME/google-cloud-sdk/bin:$PATH
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/opt/local/lib/mariadb/bin:$HOME/bin:$HOME/google-cloud-sdk/bin:$GOPATH/bin:$PATH
