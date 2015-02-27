@@ -28,6 +28,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic' 
 Bundle 'SirVer/ultisnips' 
 Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
@@ -42,7 +43,6 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
-let g:airline_powerline_fonts=1
 " ----------------------------------------
 " Regular Vim Configuration (No Plugins Needed)
 " ----------------------------------------
@@ -64,8 +64,10 @@ if has("autocmd")
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType xml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType jade setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType eco setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType java setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType r setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal expandtab foldmethod=indent foldlevel=99 
@@ -255,7 +257,7 @@ xnoremap & :&& <CR>
 " ---------------
 " Airline
 " ---------------
-let g:airline_detect_whitespace=0
+let g:airline_powerline_fonts=1
 
 " ---------------
 " TagBar
@@ -277,6 +279,11 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_show_hidden = 1
+
+" ---------------
+" Eclim
+" ---------------
+let g:EclimCompletionMethod = 'omnifunc'
 
 " ---------------
 " NERDTree
