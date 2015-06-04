@@ -2,45 +2,46 @@
 " Vundle
 " ---------------
 set nocompatible
-:filetype off
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " ----------------------------------------
-" Bundle List
+" Plugin List
 " ----------------------------------------
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-Bundle 'c9s/bufexplorer'
-Bundle 'godlygeek/tabular'
-Bundle 'honza/vim-snippets'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mitsuhiko/vim-jinja'
-Bundle 'majutsushi/tagbar'
-Bundle 'mileszs/ack.vim'
-Bundle 'nelstrom/vim-visual-star-search'
-Bundle 'nelstrom/vim-qargs'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic' 
-Bundle 'SirVer/ultisnips' 
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'c9s/bufexplorer'
+Plugin 'godlygeek/tabular'
+Plugin 'honza/vim-snippets'
+Plugin 'janko-m/vim-test'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mindriot101/vim-yapf'
+Plugin 'mitsuhiko/vim-jinja'
+Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
+Plugin 'nelstrom/vim-visual-star-search'
+Plugin 'nelstrom/vim-qargs'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic' 
+Plugin 'SirVer/ultisnips' 
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
 syntax on
-filetype on
-filetype plugin on
 filetype plugin indent on
 
 " ----------------------------------------
@@ -211,11 +212,11 @@ nmap <leader>e :e <c-r>=expand('%:p:h').'/'<cr>
 " ---------------
 " vi Tab navigation
 " ---------------
-nnoremap th  :tabfirst<CR>
+" nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
 nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
+" nnoremap tl  :tablast<CR>
+" nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnew<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
@@ -262,7 +263,7 @@ let g:airline_powerline_fonts=1
 " ---------------
 " TagBar
 " ---------------
-nmap <leader>t :TagbarToggle<CR>
+nmap <leader>tb :TagbarToggle<CR>
 let g:tagbar_ctags_bin='/opt/local/bin/ctags'
 let g:tagbar_autoclose=1
 let g:tagbar_autofocus=1
@@ -279,11 +280,6 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_show_hidden = 1
-
-" ---------------
-" Eclim
-" ---------------
-let g:EclimCompletionMethod = 'omnifunc'
 
 " ---------------
 " NERDTree
@@ -312,6 +308,43 @@ let g:ycm_autoclose_preview_window_after_completion=1
 " Gundo
 " ---------------
 nnoremap <F5> :GundoToggle<CR>
+
+" ---------------
+" Fugitive
+" ---------------
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gl :Glog<CR>
+" nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gp :Gpush<CR>
+" nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>gr :Gread<cr>
+nnoremap <leader>gm :Gmove
+nnoremap <leader>gg :Git<space>
+nnoremap du :diffupdate<CR>
+
+" ---------------
+" vim-test
+" ---------------
+let test#strategy = "dispatch"
+let test#runners = {'python': ['Invoke']}
+let test#python#runner = 'Invoke'
+nmap <silent> <leader>tt :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+function! EditTestFile()
+  let currentpath = expand('%:p:h')
+  let newpath = system('sed "s,src/app,test," <<< ' . currentpath)
+  let newpath = substitute(currentpath, "src/app", "test", '')
+  let newfilename = substitute(expand('%:t'), '\.', '_test\.', '')
+  let newcompletepath = newpath . '/' . newfilename
+  execute 'edit ' . newcompletepath
+endfunction
+nnoremap <leader>et :call EditTestFile()<cr>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim           

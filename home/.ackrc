@@ -10,7 +10,7 @@
 ####################################################################
 
 --type-set=plaintext=.md,.mdown,.markdown,.mkdn,.textile,.rst,.txt
---type-set=csv=.txt,.csv,.tsv
+--type-set=csv=.csv,.tsv
 
 --type-add=css=scss
 --type-set=coffeescript=.coffee
@@ -21,6 +21,8 @@
 
 # Ignore Settings
 ####################################################################
---ignore-dir=build,node_modules,coverage
+--ignore-dir=build
+--ignore-dir=node_modules
+--ignore-dir=coverage
 --ignore-file=is:tags
 --ignore-file=is:cscope.out
