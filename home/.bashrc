@@ -37,4 +37,4 @@ export DOCKER_CERT_PATH=/Users/ksookocheff/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
 CDPATH=:$HOME/Projects
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/opt/local/lib/mariadb/bin:$HOME/bin:$HOME/google-cloud-sdk/bin:$HOME/bdutil-1.1.0:$HOME/Projects/vdevops/src/vdevops:$PATH
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/opt/local/lib/mariadb/bin:$HOME/bin:$HOME/google-cloud-sdk/bin:$HOME/bdutil-1.1.0:$HOME/Projects/vdevops/src/vdevops:$PATH:$GAE_SDK_ROOT

@@ -65,16 +65,18 @@ if has("autocmd")
   autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType xml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType jade setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType eco setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType java setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType r setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType java setlocal ts=2 sts=2 sw=2 expandtab 
+  autocmd FileType r setlocal ts=2 sts=2 sw=2 expandtab commentstring=#\ %s
   autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal expandtab foldmethod=indent foldlevel=99 
-  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
   autocmd FileType go compiler go
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+  autocmd BufNewFile,BufReadPost *.md set spell
 endif
 
 " ---------------
@@ -263,7 +265,7 @@ let g:airline_powerline_fonts=1
 " ---------------
 " TagBar
 " ---------------
-nmap <leader>tb :TagbarToggle<CR>
+nmap <leader>t :TagbarToggle<CR>
 let g:tagbar_ctags_bin='/opt/local/bin/ctags'
 let g:tagbar_autoclose=1
 let g:tagbar_autofocus=1
@@ -277,6 +279,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_extensions = ['tag']
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_show_hidden = 1
@@ -322,7 +325,7 @@ nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gr :Gread<cr>
 nnoremap <leader>gm :Gmove
 nnoremap <leader>gg :Git<space>
-nnoremap du :diffupdate<CR>
+nnoremap <leader>du :diffupdate<CR>
 
 " ---------------
 " vim-test
