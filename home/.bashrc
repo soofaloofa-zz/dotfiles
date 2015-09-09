@@ -24,4 +24,7 @@ export PYTHONPATH=${PYTHONPATH}:${GAE_SDK_ROOT}
 source $HOME/google-cloud-sdk/path.bash.inc
 source $HOME/google-cloud-sdk/completion.bash.inc
 
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin::$HOME/bin:$HOME/google-cloud-sdk/bin:$GAE_SDK_ROOT:$PATH
+# Go
+export GOPATH=$HOME/golang/
+
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$HOME/bin:$HOME/google-cloud-sdk/bin:$GAE_SDK_ROOT:$PATH
