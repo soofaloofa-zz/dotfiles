@@ -27,4 +27,4 @@ source $HOME/google-cloud-sdk/completion.bash.inc
 # Go
 export GOPATH=$HOME/golang/
 
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$HOME/bin:$HOME/google-cloud-sdk/bin:$GAE_SDK_ROOT:$PATH
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$HOME/bin:$HOME/google-cloud-sdk/bin:$GAE_SDK_ROOT:$GOPATH/bin:$PATH
