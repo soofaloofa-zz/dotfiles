@@ -15,10 +15,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'c9s/bufexplorer'
+Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
 Plugin 'janko-m/vim-test'
-Plugin 'jnwhiteh/vim-golang'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mindriot101/vim-yapf'
 Plugin 'mitsuhiko/vim-jinja'
@@ -73,8 +73,6 @@ if has("autocmd")
   autocmd FileType r setlocal ts=2 sts=2 sw=2 expandtab commentstring=#\ %s
   autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal expandtab foldmethod=indent foldlevel=99 
-  autocmd FileType go autocmd BufWritePre <buffer> Fmt
-  autocmd FileType go compiler go
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd BufNewFile,BufReadPost *.md set spell
 endif
@@ -287,6 +285,15 @@ let g:ctrlp_extensions = ['tag']
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_show_hidden = 1
+
+" ---------------
+" vim-go
+" ---------------
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 " ---------------
 " NERDTree

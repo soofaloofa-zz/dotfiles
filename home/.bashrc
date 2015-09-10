@@ -25,6 +25,10 @@ source $HOME/google-cloud-sdk/path.bash.inc
 source $HOME/google-cloud-sdk/completion.bash.inc
 
 # Go
+export GOROOT=/usr/local/go
 export GOPATH=$HOME/golang/
 
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$HOME/bin:$HOME/google-cloud-sdk/bin:$GAE_SDK_ROOT:$GOPATH/bin:$PATH
+# Scala
+export SCALA_HOME=/usr/local/share/scala
+
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$HOME/bin:$HOME/google-cloud-sdk/bin:$GAE_SDK_ROOT:$GOPATH/bin:$SCALA_HOME/bin:$PATH
