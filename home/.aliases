@@ -15,7 +15,7 @@ alias cp="cp -i"
 alias rm="rm -i"
 alias vi="vim"
 alias grep="grep --color=auto"
-alias eclimd="/Applications/eclipse/eclimd"
+alias eclimd="/Applications/Eclipse.app/Contents/Eclipse/eclimd"
 
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
